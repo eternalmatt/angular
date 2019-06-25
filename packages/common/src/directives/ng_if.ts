@@ -236,8 +236,7 @@ export class NgIfContext {
 }
 
 function assertTemplate(property: string, templateRef: TemplateRef<any>| null): void {
-  const isTemplateRefOrNull = !!(!templateRef || templateRef.createEmbeddedView);
-  if (!isTemplateRefOrNull) {
+  if (templateRef && !templateRef.createEmbeddedView) {
     throw new Error(`${property} must be a TemplateRef, but received '${stringify(templateRef)}'.`);
   }
 }
