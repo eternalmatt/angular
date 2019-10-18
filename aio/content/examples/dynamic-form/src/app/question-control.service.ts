@@ -9,7 +9,7 @@ export class QuestionControlService {
   constructor() { }
 
   toFormGroup(questions: QuestionBase<any>[] ) {
-    let group: any = {};
+    let group: Record<string, FormControl> = {};
 
     questions.forEach(question => {
       group[question.key] = question.required ? new FormControl(question.value || '', Validators.required)
